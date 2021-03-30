@@ -1,23 +1,26 @@
-# main.py
+#!/usr/bin/env python3
 
-# imports
-import sys
-from PySide6.QtWidgets import QApplication, QMessageBox, QSystemTrayIcon
-from window import Window
+import os, json, window
 
 def main():
-    app = QApplication()
 
-    QApplication.setQuitOnLastWindowClosed(False)
+    # check if vocabulary exists
+    if not os.path.exists("data/vocab.json"):
+        print("Please put vocab.json in data directory")
+        exit(1)
 
-    if not QSystemTrayIcon.isSystemTrayAvailable():
-        print("System tray not available.")
-        sys.exit(1)
+    # if new user
+    if not os.path.exists("data/progress.json"):
+        window.new_user_page()
+        print("Creating new progress json")
+        dictt = {}
+        with open("data/vocab.json", "r") as data:
+            dictt = json.load(data)
+        with open("data/progress.json", "w") as outfile:
+            json.dump(dictt, outfile, ensure_ascii = False)
 
-    window = Window()
-    window.show()
-    sys.exit(app.exec_())
 
 
-if __name__ == "__main__":
+
+if __name__ == '__main__':
     main()
