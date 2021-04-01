@@ -26,6 +26,7 @@ class Window:
             anchor="center"
         )
 
+
         # to use in roman_sel()
         self.et_roman = tk.Entry(
             bg="black", fg="white",
@@ -146,7 +147,7 @@ class Window:
             fg="white",
             anchor="center",
             highlightthickness=0,
-            command=partial(self.get_vals, et_vocab)
+            command=partial(self.get_vals, et_vocab, et_def, self.et_roman)
         )
 
         # title
@@ -162,22 +163,23 @@ class Window:
 
         # romanization
         lb_roman.pack(pady=(15,0))
-        rd_roman_no.pack(side="left")
-        rd_roman_yes.pack(side="left")
+        rd_roman_no.pack()
+        rd_roman_yes.pack()
         self.et_roman.pack()
 
         # start
         bt_start.pack(pady=(15,0))
 
-
-    # TODO - now handle all entry values
-    def get_vals(self, ent):
-        utils.placeholder(ent.get())
+    # get all active entry values
+    def get_vals(self, *args):
+        for entry in args:
+            if entry['state'] != 'disabled':
+                utils.placeholder(entry.get())
 
     # No: 0; Yes: 1
     def roman_sel(self, selection):
         if not selection:
-            self.et_roman.config(state='disabled', anchor="center")
+            self.et_roman.config(state='disabled')
         else:
             self.et_roman.config(state='normal')
 
