@@ -18,12 +18,6 @@ def main():
     if not os.path.exists("../data/progress.json"):
         wd.new_user_page()
         wd.start()
-        #print("Creating new progress json")
-        #dictt = {}
-        #with open("../data/vocab.json", "r") as data:
-        #    dictt = json.load(data)
-        #with open("../data/progress.json", "w") as outfile:
-        #    json.dump(dictt, outfile, ensure_ascii = False)
 
 
 
