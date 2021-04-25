@@ -7,18 +7,17 @@ def main():
 
     wd = Window()
 
-    # check if vocabulary exists
-    if not os.path.exists("../data/vocab.json"):
-        wd.need_data_page()
-        print("Please put vocab.json in data directory")
+    # check if there is a progress.json
+    #data = [x for x in os.listdir("../data/user/") if len(x) >= 5 and  x[-5:] == ".json"]
+    #if not data:
+
+    if not os.path.exists("../data/user/progress.json"):
+        wd.homepage(False)
         wd.start()
         exit(1)
 
-    # if new user
-    if not os.path.exists("../data/progress.json"):
-        wd.new_user_page()
-        wd.start()
-
+    wd.homepage(True)
+    wd.start()
 
 
 if __name__ == '__main__':
