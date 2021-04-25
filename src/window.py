@@ -54,9 +54,37 @@ class Window:
     def start(self):
         self.root.mainloop()
 
-    # show welcome, users need data.json
-    def need_data_page(self):
+
+    # TODO: homepage
+    # state True: train
+    # state False: new user
+    def homepage(self, state):
         debug("In need_data_page()")
+
+        # menu at top
+        menubar = tk.Menu(
+            self.root,
+            bg="black",
+            fg="white",
+            activeforeground="white",
+            activebackground="black"
+        )
+        filemenu = tk.Menu(menubar, tearoff=0)
+        filemenu.add_command(
+            label="Append Lexis",
+            activeforeground="white",
+            activebackground="black",
+            command=add_word
+        )
+        filemenu.add_command(
+            label="Set Pests",
+            activeforeground="white",
+            activebackground="black",
+            command=pest_settings
+        )
+
+        menubar.add_cascade(label="Menu", menu=filemenu)
+        self.root.config(menu=menubar)
 
         lb_need_data = tk.Label(
             text="Please add a vocab.json\n to the data directory. ",
@@ -78,9 +106,16 @@ class Window:
         )
 
         # display widgets
-        lb_title.pack(pady=(50,subtext_size0))
+        self.lb_title.pack(pady=(50, subtext_size))
         lb_need_data.pack()
         bt_refresh.pack()
+
+    # TODO: these both
+    def add_word():
+        pass
+
+    def pest_settings():
+        pass
 
     # sets up progress
     def new_user_page(self):
