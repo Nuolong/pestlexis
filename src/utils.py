@@ -16,6 +16,11 @@ def refresh():
     python = sys.executable
     os.execl(python, python, * sys.argv)
 
+
+# add to dictionary
+# returns tuple:
+# (0 on failure, string message)
+# (1 on success, string message)
 def add_vocab(keys):
     # get values from keys
     word = keys[0].strip()
@@ -29,10 +34,7 @@ def add_vocab(keys):
         if roman == "":
             return 0, "Missing romanization"
 
-    # add to dictionary
-    # returns tuple:
-    # (0 on failure, string message)
-    # (1 on success, string message)
+    # add to dictionary (dict.json)
     if os.path.exists("../data/user/dict.json"):
         with open("../data/user/dict.json", "r") as word_list:
             word_decoded = json.load(word_list)
@@ -65,41 +67,60 @@ def add_vocab(keys):
     return 1, "Added " + word + " to deck"
 
 
-
 # create progress.json
-def create_progress(keys):
+def import_dict(keys):
+    word_key = keys[0].strip()
+    if word_key == "":
+        return 0, "Missing word key"
+    meaning_key = keys[1].strip()
+    if meaning_key == "":
+        return 0, "Missing meaning key"
+    if len(keys) == 3:
+        roman_key = keys[2].strip()
+        if roman_key == "":
+            return 0, "Missing romanization key"
 
-    debug("Creating progress.json")
-    data_dict = []
-    progress = []
-    with open("../data/vocab.json", "r") as data:
-        data_list = json.load(data)
-        for word in data_list:
-            word_dict = {}
+    debug("Creating dict.json")
+    word_dict = {}
 
-            try:
-                word_dict['vocab'] = word[keys[0]]
-            except KeyError:
-                debug("Vocab key nonexistent")
-                return "Vocabulary key nonexistent"
+    try:
+        with open("../data/input/vocab.json", "r") as data:
+            data_list = json.load(data)
 
-            try:
-                word_dict['meaning'] = word[keys[1]]
-            except KeyError:
-                debug("Meaning key nonexistent")
-                return "Meaning key nonexistent"
+            with open("../data/user/progress.json", "r") as progress:
+                progress_json = json.load(progress)
 
-            try:
-                if len(keys) == 3:
-                    word_dict['roman'] = word[keys[2]]
-            except KeyError:
-                debug("Romanization key nonexistent")
-                return "Romanization key nonexistent"
+                for word in data_list:
+                    progress_json['1'].append(word[word_key])
 
-            progress.append(word_dict)
+                    try:
+                        word_dict[word[word_key]] = {}
+                    except KeyError:
+                        debug("Vocab key nonexistent")
+                        return 0, "Vocabulary key nonexistent"
 
-    with open("../data/progress.json", "w") as outfile:
-        json.dump(progress, outfile, ensure_ascii = False)
+                    try:
+                        word_dict[word[word_key]]['definitions'] = word[meaning_key]
+                    except KeyError:
+                        debug("Meaning key nonexistent")
+                        return 0, "Meaning key nonexistent"
 
+                    try:
+                        if len(keys) == 3:
+                            word_dict[word[word_key]]['romanization'] = word[roman_key]
+                    except KeyError:
+                        debug("Romanization key nonexistent")
+                        return 0, "Romanization key nonexistent"
+
+    except FileNotFoundError:
+        return 0, "Put vocab.json in data/input/"
+
+    with open("../data/user/dict.json", "w") as outfile:
+        json.dump(word_dict, outfile, ensure_ascii = False)
+    debug("Created dict.json")
+
+    with open("../data/user/progress.json", "w") as outfile:
+        json.dump(progress_json, outfile, ensure_ascii = False)
     debug("Created progress.json")
-    return "Success"
+
+    return 1, "Success"

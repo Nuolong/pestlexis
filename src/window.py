@@ -87,29 +87,41 @@ class Window:
         menubar.add_cascade(label="Menu", menu=filemenu)
         self.root.config(menu=menubar)
 
-        lb_need_data = tk.Label(
-            text="Please add a vocab.json\n to the data directory. ",
-            bg="black", fg="#ffcccc",
-            width=100, height=1,
-            font=(subtext_font, subtext_size),
-            anchor="center",
-            pady=40
-        )
+        if not state:
+            lb_need_data = tk.Label(
+                text="Welcome new user! \nImport your dictionary \nor add new words.",
+                bg="black", fg="#798CFF",
+                width=100, height=1,
+                font=(subtext_font, subtext_size),
+                anchor="center",
+                pady=40
+            )
 
-        bt_refresh = tk.Button(
-            text="Refresh",
-            width=10, height=2,
-            bg="black", fg="white",
-            font=(subtext_font, subtext_size),
-            anchor="center",
-            highlightthickness=0,
-            command=utils.refresh
-        )
+            bt_import = tk.Button(
+                text="Import JSON",
+                width=10, height=2,
+                bg="black", fg="white",
+                font=(subtext_font, subtext_size),
+                anchor="center",
+                highlightthickness=0,
+                command=self.import_page
+            )
 
-        # display widgets
-        self.lb_title.pack(pady=(50, subtext_size))
-        lb_need_data.pack()
-        bt_refresh.pack()
+            bt_add_word = tk.Button(
+                text="Add Words",
+                width=10, height=2,
+                bg="black", fg="white",
+                font=(subtext_font, subtext_size),
+                anchor="center",
+                highlightthickness=0,
+                command=self.add_word
+            )
+
+            # display widgets
+            self.lb_title.pack(pady=(50, subtext_size))
+            lb_need_data.pack()
+            bt_import.pack(pady=(30, subtext_size))
+            bt_add_word.pack(pady=(30, subtext_size))
 
     # TODO: these both
     def add_word(self):
@@ -245,11 +257,16 @@ class Window:
         pass
 
 
-    # sets up progress
-    def new_user_page(self):
-        debug("In new_user_page()")
+    # import json page
+    def import_page(self):
+        debug("In import_page")
+        import_window = tk.Toplevel(self.root)
+        import_window.title("Import Lexis")
+        import_window.geometry("400x375")
+        import_window.config(background = background_clr)
 
         lb_vocab = tk.Label(
+            import_window,
             text="Vocabulary key:",
             bg="black", fg="white",
             width=100, height=1,
@@ -258,6 +275,7 @@ class Window:
         )
 
         et_vocab = tk.Entry(
+            import_window,
             bg="black", fg="white",
             width=entry_width,
             font=(text_box_font, subtext_size),
@@ -266,6 +284,7 @@ class Window:
         et_vocab.insert(0, "vocab")
 
         lb_def = tk.Label(
+            import_window,
             text="Definition key:",
             bg="black", fg="white",
             width=100, height=1,
@@ -273,6 +292,7 @@ class Window:
             anchor="center"
         )
         et_def = tk.Entry(
+            import_window,
             bg="black", fg="white",
             width=entry_width,
             font=(text_box_font, subtext_size),
@@ -282,6 +302,7 @@ class Window:
 
 
         lb_roman = tk.Label(
+            import_window,
             text="Romanization key:",
             bg="black",
             fg="white",
@@ -290,8 +311,19 @@ class Window:
             font=(subtext_font, subtext_size),
             anchor="center"
         )
+
+        et_roman = tk.Entry(
+            import_window,
+            bg="black", fg="white",
+            width=entry_width,
+            font=(text_box_font, subtext_size),
+            justify='center',
+            disabledbackground="#636363"
+        )
+
         # y/n selection
         rd_roman_no = tk.Radiobutton(
+            import_window,
             bg="black", fg="white",
             selectcolor="black",
             activebackground="black",
@@ -299,10 +331,11 @@ class Window:
             font=(subtext_font, subtext_size - 5),
             highlightthickness=0,
             value=0,
-            command=partial(self.roman_sel, 0, self.et_roman),
+            command=partial(self.roman_sel, 0, et_roman),
             text="No",
         )
         rd_roman_yes = tk.Radiobutton(
+            import_window,
             bg="black", fg="white",
             selectcolor="black",
             activebackground="black",
@@ -310,13 +343,24 @@ class Window:
             font=(subtext_font, subtext_size - 5),
             highlightthickness=0,
             value=1,
-            command=partial(self.roman_sel, 1, self.et_roman),
+            command=partial(self.roman_sel, 1, et_roman),
             text="Yes",
         )
-        self.et_roman.insert(0, "roman")
+        et_roman.insert(0, "roman")
+
+        lb_result = tk.Label(
+            import_window,
+            bg="black",
+            fg="red",
+            width=100,
+            height=1,
+            font=(subtext_font, subtext_size),
+            anchor="center"
+        )
 
         bt_start = tk.Button(
-            text="Add",
+            import_window,
+            text="Import",
             width=10,
             height=2,
             bg="black",
@@ -324,11 +368,8 @@ class Window:
             fg="white",
             anchor="center",
             highlightthickness=0,
-            command=partial(self.get_vals_import, et_vocab, et_def, self.et_roman)
+            command=partial(self.get_vals_import, lb_result, et_vocab, et_def, et_roman)
         )
-
-        # title
-        self.lb_title.pack(pady=(50,5))
 
         # vocab
         lb_vocab.pack(pady=(10,0))
@@ -342,23 +383,31 @@ class Window:
         lb_roman.pack(pady=(subtext_size,0))
         rd_roman_no.pack()
         rd_roman_yes.pack()
-        self.et_roman.pack()
+        et_roman.pack()
 
         # start
         bt_start.pack(pady=(subtext_size,0))
 
     # get all active entry values
-    def get_vals_import(self, *args):
+    def get_vals_import(self, label, *args):
         keys = []
         result = tk.StringVar()
 
         for entry in args:
             if entry['state'] != 'disabled':
                 keys.append(entry.get())
-        result.set(utils.create_progress(keys))
 
-        self.lb_result.config(textvariable=result)
-        self.lb_result.pack()
+        status, strg = utils.import_dict(keys)
+        result.set(strg)
+
+        label.config(textvariable=result)
+        label.pack()
+
+        # restart app 1 second after success
+        if status:
+            print("Import success")
+            utils.refresh()
+
 
     # gets fields for adding a new word and adds word
     def get_vals_word(self, label, *args):

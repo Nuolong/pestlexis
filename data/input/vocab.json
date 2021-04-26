@@ -1,0 +1,1709 @@
+[
+  {
+    "id": 1,
+    "vocab": "爱",
+    "romanization": "ài",
+    "meaning": [
+      "to love",
+      "affection",
+      "to be fond of",
+      "to like"
+    ]
+  },
+  {
+    "id": 2,
+    "vocab": "八",
+    "romanization": "bā",
+    "meaning": [
+      "eight",
+      "8"
+    ]
+  },
+  {
+    "id": 3,
+    "vocab": "爸爸",
+    "romanization": "bà ba",
+    "meaning": [
+      "(informal) father",
+      "CL:個|个",
+      "位[wèi]"
+    ]
+  },
+  {
+    "id": 4,
+    "vocab": "杯子",
+    "romanization": "bēi zi",
+    "meaning": [
+      "cup",
+      "glass",
+      "CL:個|个",
+      "支",
+      "枝[zhī]"
+    ]
+  },
+  {
+    "id": 5,
+    "vocab": "北京",
+    "romanization": "Běi jīng",
+    "meaning": [
+      "Beijing",
+      "capital of People's Republic of China",
+      "Peking",
+      "PRC government"
+    ]
+  },
+  {
+    "id": 6,
+    "vocab": "本",
+    "romanization": "běn",
+    "meaning": [
+      "roots or stems of plants",
+      "origin",
+      "source",
+      "this",
+      "the current",
+      "root",
+      "foundation",
+      "basis",
+      "classifier for books",
+      "periodicals",
+      "files etc",
+      "originally"
+    ]
+  },
+  {
+    "id": 7,
+    "vocab": "不客气",
+    "romanization": "bù kè qi",
+    "meaning": [
+      "you're welcome",
+      "impolite",
+      "rude",
+      "blunt",
+      "don't mention it"
+    ]
+  },
+  {
+    "id": 8,
+    "vocab": "不",
+    "romanization": "bù",
+    "meaning": [
+      "(negative prefix)",
+      "not",
+      "no"
+    ]
+  },
+  {
+    "id": 9,
+    "vocab": "菜",
+    "romanization": "cài",
+    "meaning": [
+      "dish (type of food)",
+      "vegetables",
+      "vegetable",
+      "cuisine",
+      "CL:盤|盘",
+      "道[dào]"
+    ]
+  },
+  {
+    "id": 10,
+    "vocab": "茶",
+    "romanization": "chá",
+    "meaning": [
+      "tea",
+      "tea plant",
+      "CL:杯",
+      "壺|壶[hú]"
+    ]
+  },
+  {
+    "id": 11,
+    "vocab": "吃",
+    "romanization": "chī",
+    "meaning": [
+      "to eat",
+      "to consume",
+      "to eat at (a cafeteria etc)",
+      "to eradicate",
+      "to destroy",
+      "to absorb",
+      "to suffer"
+    ]
+  },
+  {
+    "id": 12,
+    "vocab": "出租车",
+    "romanization": "chū zū chē",
+    "meaning": [
+      "taxi",
+      "(Taiwan) rental car"
+    ]
+  },
+  {
+    "id": 13,
+    "vocab": "打电话",
+    "romanization": "dǎ diàn huà",
+    "meaning": [
+      "to make a telephone call"
+    ]
+  },
+  {
+    "id": 14,
+    "vocab": "大",
+    "romanization": "dà",
+    "meaning": [
+      "big",
+      "huge",
+      "large",
+      "major",
+      "great",
+      "wide",
+      "deep",
+      "oldest",
+      "eldest"
+    ]
+  },
+  {
+    "id": 15,
+    "vocab": "的",
+    "romanization": "de",
+    "meaning": [
+      "of",
+      "~'s (possessive particle)",
+      "(used after an attribute)",
+      "(used to form a nominal expression)",
+      "(used at the end of a declarative sentence for emphasis)"
+    ]
+  },
+  {
+    "id": 16,
+    "vocab": "点",
+    "romanization": "diǎn",
+    "meaning": [
+      "point",
+      "dot",
+      "drop",
+      "speck",
+      "o'clock",
+      "point (in space or time)",
+      "to draw a dot",
+      "to check on a list",
+      "to choose",
+      "to order (food in a restaurant)",
+      "to touch briefly",
+      "to hint",
+      "to light",
+      "to ignite",
+      "to pour a liquid drop by drop",
+      "(old) one fifth of a two-hour watch 更[gēng]",
+      "dot stroke in Chinese characters",
+      "classifier for items"
+    ]
+  },
+  {
+    "id": 17,
+    "vocab": "电脑",
+    "romanization": "diàn nǎo",
+    "meaning": [
+      "computer",
+      "CL:臺|台[tái]"
+    ]
+  },
+  {
+    "id": 18,
+    "vocab": "电视",
+    "romanization": "diàn shì",
+    "meaning": [
+      "television",
+      "TV",
+      "CL:臺|台",
+      "個|个[gè]"
+    ]
+  },
+  {
+    "id": 19,
+    "vocab": "电影",
+    "romanization": "diàn yǐng",
+    "meaning": [
+      "movie",
+      "film",
+      "CL:部",
+      "片",
+      "幕",
+      "場|场[chǎng]"
+    ]
+  },
+  {
+    "id": 20,
+    "vocab": "东西",
+    "romanization": "dōng xi",
+    "meaning": [
+      "thing",
+      "stuff",
+      "person",
+      "CL:個|个",
+      "件[jiàn]"
+    ]
+  },
+  {
+    "id": 21,
+    "vocab": "都",
+    "romanization": "dōu",
+    "meaning": [
+      "all",
+      "both",
+      "entirely",
+      "(used for emphasis) even",
+      "already",
+      "(not) at all"
+    ]
+  },
+  {
+    "id": 22,
+    "vocab": "读",
+    "romanization": "dú",
+    "meaning": [
+      "to read",
+      "to study",
+      "reading of word (i.e. pronunciation)",
+      "similar to 拼音[pīn yīn]"
+    ]
+  },
+  {
+    "id": 23,
+    "vocab": "对不起",
+    "romanization": "duì bu qǐ",
+    "meaning": [
+      "unworthy",
+      "to let down",
+      "I'm sorry",
+      "excuse me",
+      "pardon me",
+      "if you please",
+      "sorry? (please repeat)"
+    ]
+  },
+  {
+    "id": 24,
+    "vocab": "多",
+    "romanization": "duō",
+    "meaning": [
+      "many",
+      "much",
+      "a lot of",
+      "numerous",
+      "more",
+      "in excess",
+      "how (to what extent)",
+      "multi-",
+      "Taiwan pr.  when it means \"how\""
+    ]
+  },
+  {
+    "id": 25,
+    "vocab": "多少",
+    "romanization": "duō shao",
+    "meaning": [
+      "how much",
+      "how many",
+      "which (number)",
+      "as much as"
+    ]
+  },
+  {
+    "id": 26,
+    "vocab": "儿子",
+    "romanization": "ér zi",
+    "meaning": [
+      "son"
+    ]
+  },
+  {
+    "id": 27,
+    "vocab": "二",
+    "romanization": "èr",
+    "meaning": [
+      "two",
+      "2",
+      "stupid (Beijing dialect)"
+    ]
+  },
+  {
+    "id": 28,
+    "vocab": "饭馆",
+    "romanization": "fàn guǎn",
+    "meaning": [
+      "restaurant",
+      "CL:家[jiā]"
+    ]
+  },
+  {
+    "id": 29,
+    "vocab": "飞机",
+    "romanization": "fēi jī",
+    "meaning": [
+      "airplane",
+      "CL:架[jià]"
+    ]
+  },
+  {
+    "id": 30,
+    "vocab": "分钟",
+    "romanization": "fēn zhōng",
+    "meaning": [
+      "minute"
+    ]
+  },
+  {
+    "id": 31,
+    "vocab": "高兴",
+    "romanization": "gāo xìng",
+    "meaning": [
+      "happy",
+      "glad",
+      "willing (to do sth)",
+      "in a cheerful mood"
+    ]
+  },
+  {
+    "id": 32,
+    "vocab": "个",
+    "romanization": "gè",
+    "meaning": [
+      "variant of 個|个[gè]"
+    ]
+  },
+  {
+    "id": 33,
+    "vocab": "工作",
+    "romanization": "gōng zuò",
+    "meaning": [
+      "to work",
+      "(of a machine) to operate",
+      "job",
+      "work",
+      "task",
+      "CL:個|个",
+      "份",
+      "項|项[xiàng]"
+    ]
+  },
+  {
+    "id": 34,
+    "vocab": "狗",
+    "romanization": "gǒu",
+    "meaning": [
+      "dog",
+      "CL:隻|只",
+      "條|条[tiáo]"
+    ]
+  },
+  {
+    "id": 35,
+    "vocab": "汉语",
+    "romanization": "Hàn yǔ",
+    "meaning": [
+      "Chinese language",
+      "CL:門|门[mén]"
+    ]
+  },
+  {
+    "id": 36,
+    "vocab": "好",
+    "romanization": "hǎo",
+    "meaning": [
+      "good",
+      "well",
+      "proper",
+      "good to",
+      "easy to",
+      "very",
+      "so",
+      "(suffix indicating completion or readiness)"
+    ]
+  },
+  {
+    "id": 37,
+    "vocab": "喝",
+    "romanization": "hē",
+    "meaning": [
+      "to drink",
+      "My goodness!"
+    ]
+  },
+  {
+    "id": 38,
+    "vocab": "和",
+    "romanization": "hé",
+    "meaning": [
+      "and",
+      "together with",
+      "with",
+      "sum",
+      "union",
+      "peace",
+      "harmony",
+      "Japanese related",
+      "Taiwan pr. [hàn]"
+    ]
+  },
+  {
+    "id": 39,
+    "vocab": "很",
+    "romanization": "hěn",
+    "meaning": [
+      "(adverb of degree)",
+      "quite",
+      "very",
+      "awfully"
+    ]
+  },
+  {
+    "id": 40,
+    "vocab": "后面",
+    "romanization": "hòu mian",
+    "meaning": [
+      "rear",
+      "back",
+      "behind",
+      "later",
+      "afterwards"
+    ]
+  },
+  {
+    "id": 41,
+    "vocab": "回",
+    "romanization": "huí",
+    "meaning": [
+      "to curve",
+      "to return",
+      "to revolve"
+    ]
+  },
+  {
+    "id": 42,
+    "vocab": "会",
+    "romanization": "huì",
+    "meaning": [
+      "can",
+      "be possible",
+      "be able to",
+      "will",
+      "be likely to",
+      "be sure to",
+      "to assemble",
+      "to meet",
+      "to gather",
+      "to see",
+      "union",
+      "group",
+      "association",
+      "CL:個|个[gè]",
+      "a moment (Taiwan pr. for this sense is )"
+    ]
+  },
+  {
+    "id": 43,
+    "vocab": "火车站",
+    "romanization": "huǒ chē zhàn",
+    "meaning": [
+      "train station"
+    ]
+  },
+  {
+    "id": 44,
+    "vocab": "几",
+    "romanization": "jǐ",
+    "meaning": [
+      "how much",
+      "how many",
+      "several",
+      "a few"
+    ]
+  },
+  {
+    "id": 45,
+    "vocab": "家",
+    "romanization": "jiā",
+    "meaning": [
+      "home",
+      "family",
+      "classifier for families or businesses",
+      "refers to the philosophical schools of pre-Han China",
+      "noun suffix for specialists in some activity such as musician or revolutionary",
+      "corresponds to English -ist",
+      "-er",
+      "-ary or -ian",
+      "CL:個|个[gè]"
+    ]
+  },
+  {
+    "id": 46,
+    "vocab": "叫",
+    "romanization": "jiào",
+    "meaning": [
+      "to shout",
+      "to call",
+      "to order",
+      "to ask",
+      "to be called",
+      "by (indicates agent in the passive mood)"
+    ]
+  },
+  {
+    "id": 47,
+    "vocab": "今天",
+    "romanization": "jīn tiān",
+    "meaning": [
+      "today",
+      "at the present",
+      "now"
+    ]
+  },
+  {
+    "id": 48,
+    "vocab": "九",
+    "romanization": "jiǔ",
+    "meaning": [
+      "nine",
+      "9"
+    ]
+  },
+  {
+    "id": 49,
+    "vocab": "开",
+    "romanization": "kāi",
+    "meaning": [
+      "to open",
+      "to start",
+      "to turn on",
+      "to boil",
+      "to write out (a medical prescription)",
+      "to operate (vehicle)",
+      "abbr. for 開爾文|开尔文 degrees Kelvin"
+    ]
+  },
+  {
+    "id": 50,
+    "vocab": "看",
+    "romanization": "kàn",
+    "meaning": [
+      "to see",
+      "to look at",
+      "to read",
+      "to watch",
+      "to consider",
+      "to regard as",
+      "to view as",
+      "to treat as",
+      "to judge",
+      "(after repeated verb) to give it a try",
+      "depending on (how you're judging)",
+      "to visit",
+      "to call on",
+      "to treat (an illness)",
+      "to look after",
+      "Watch out! (for a danger)"
+    ]
+  },
+  {
+    "id": 51,
+    "vocab": "看见",
+    "romanization": "kàn jiàn",
+    "meaning": [
+      "to see",
+      "to catch sight of"
+    ]
+  },
+  {
+    "id": 52,
+    "vocab": "块",
+    "romanization": "kuài",
+    "meaning": [
+      "lump (of earth)",
+      "chunk",
+      "piece",
+      "classifier for pieces of cloth",
+      "cake",
+      "soap etc",
+      "colloquial word for yuan (or other unit of currency such as Hong Kong or US dollar etc)",
+      "usually as 塊錢|块钱"
+    ]
+  },
+  {
+    "id": 53,
+    "vocab": "来",
+    "romanization": "lái",
+    "meaning": [
+      "to come",
+      "to arrive",
+      "to come round",
+      "ever since",
+      "next"
+    ]
+  },
+  {
+    "id": 54,
+    "vocab": "老师",
+    "romanization": "lǎo shī",
+    "meaning": [
+      "teacher",
+      "CL:個|个",
+      "位[wèi]"
+    ]
+  },
+  {
+    "id": 55,
+    "vocab": "了",
+    "romanization": "le",
+    "meaning": [
+      "(modal particle intensifying preceding clause)",
+      "(completed action marker)"
+    ]
+  },
+  {
+    "id": 56,
+    "vocab": "冷",
+    "romanization": "lěng",
+    "meaning": [
+      "cold"
+    ]
+  },
+  {
+    "id": 57,
+    "vocab": "里",
+    "romanization": "lǐ",
+    "meaning": [
+      "li (Chinese mile)",
+      "500 meters (modern)",
+      "home",
+      "hometown",
+      "village",
+      "neighborhood",
+      "administrative unit"
+    ]
+  },
+  {
+    "id": 58,
+    "vocab": "零",
+    "romanization": "líng",
+    "meaning": [
+      "zero",
+      "nought",
+      "zero sign",
+      "fractional",
+      "fragmentary",
+      "odd (of numbers)",
+      "(placed between two numbers to indicate a smaller quantity followed by a larger one)",
+      "fraction",
+      "(in mathematics) remainder (after division)",
+      "extra",
+      "to wither and fall",
+      "to wither"
+    ]
+  },
+  {
+    "id": 59,
+    "vocab": "六",
+    "romanization": "liù",
+    "meaning": [
+      "six",
+      "6"
+    ]
+  },
+  {
+    "id": 60,
+    "vocab": "妈妈",
+    "romanization": "mā ma",
+    "meaning": [
+      "mama",
+      "mommy",
+      "mother",
+      "CL:個|个",
+      "位[wèi]"
+    ]
+  },
+  {
+    "id": 61,
+    "vocab": "吗",
+    "romanization": "ma",
+    "meaning": [
+      "(question tag)"
+    ]
+  },
+  {
+    "id": 62,
+    "vocab": "买",
+    "romanization": "mǎi",
+    "meaning": [
+      "to buy",
+      "to purchase"
+    ]
+  },
+  {
+    "id": 63,
+    "vocab": "猫",
+    "romanization": "māo",
+    "meaning": [
+      "cat",
+      "CL:隻|只[zhī]"
+    ]
+  },
+  {
+    "id": 64,
+    "vocab": "没",
+    "romanization": "méi",
+    "meaning": [
+      "(negative prefix for verbs)",
+      "have not",
+      "not"
+    ]
+  },
+  {
+    "id": 65,
+    "vocab": "没关系",
+    "romanization": "méi guān xi",
+    "meaning": [
+      "it doesn't matter"
+    ]
+  },
+  {
+    "id": 66,
+    "vocab": "米饭",
+    "romanization": "mǐ fàn",
+    "meaning": [
+      "(cooked) rice"
+    ]
+  },
+  {
+    "id": 67,
+    "vocab": "明天",
+    "romanization": "míng tiān",
+    "meaning": [
+      "tomorrow"
+    ]
+  },
+  {
+    "id": 68,
+    "vocab": "名字",
+    "romanization": "míng zi",
+    "meaning": [
+      "name (of a person or thing)",
+      "CL:個|个[gè]"
+    ]
+  },
+  {
+    "id": 69,
+    "vocab": "哪",
+    "romanization": "nǎ",
+    "meaning": [
+      "how",
+      "which"
+    ]
+  },
+  {
+    "id": 70,
+    "vocab": "那",
+    "romanization": "nà",
+    "meaning": [
+      "that",
+      "those",
+      "then (in that case)",
+      "commonly pr.  before a classifier",
+      "esp. in Beijing"
+    ]
+  },
+  {
+    "id": 71,
+    "vocab": "呢",
+    "romanization": "ne",
+    "meaning": [
+      "particle indicating that a previously asked question is to be applied to the preceding word (\"What about ...?\"",
+      "\"And ...?\")",
+      "particle for inquiring about location (\"Where is ...?\")",
+      "particle signaling a pause",
+      "to emphasize the preceding words and allow the listener time to take them on board (\"ok?\"",
+      "\"are you with me?\")",
+      "(at the end of a declarative sentence) particle indicating continuation of a state or action",
+      "particle indicating strong affirmation"
+    ]
+  },
+  {
+    "id": 72,
+    "vocab": "能",
+    "romanization": "néng",
+    "meaning": [
+      "to be able to",
+      "to be capable of",
+      "ability",
+      "capability",
+      "able",
+      "capable",
+      "can possibly",
+      "(usually used in the negative) to have the possibility of"
+    ]
+  },
+  {
+    "id": 73,
+    "vocab": "你",
+    "romanization": "nǐ",
+    "meaning": [
+      "you (informal",
+      "as opposed to courteous 您)"
+    ]
+  },
+  {
+    "id": 74,
+    "vocab": "年",
+    "romanization": "nián",
+    "meaning": [
+      "year",
+      "CL:個|个[gè]"
+    ]
+  },
+  {
+    "id": 75,
+    "vocab": "女儿",
+    "romanization": "nǚ ér",
+    "meaning": [
+      "daughter"
+    ]
+  },
+  {
+    "id": 76,
+    "vocab": "朋友",
+    "romanization": "péng you",
+    "meaning": [
+      "friend",
+      "CL:個|个",
+      "位[wèi]"
+    ]
+  },
+  {
+    "id": 77,
+    "vocab": "漂亮",
+    "romanization": "piào liang",
+    "meaning": [
+      "pretty",
+      "beautiful"
+    ]
+  },
+  {
+    "id": 78,
+    "vocab": "苹果",
+    "romanization": "píng guǒ",
+    "meaning": [
+      "apple",
+      "CL:個|个",
+      "顆|颗[kē]"
+    ]
+  },
+  {
+    "id": 79,
+    "vocab": "七",
+    "romanization": "qī",
+    "meaning": [
+      "seven",
+      "7"
+    ]
+  },
+  {
+    "id": 80,
+    "vocab": "钱",
+    "romanization": "qián",
+    "meaning": [
+      "coin",
+      "money",
+      "CL:筆|笔[bǐ]",
+      "unit of weight",
+      "one tenth of a tael 兩|两[liǎng]"
+    ]
+  },
+  {
+    "id": 81,
+    "vocab": "前面",
+    "romanization": "qián miàn",
+    "meaning": [
+      "ahead",
+      "in front",
+      "preceding",
+      "above"
+    ]
+  },
+  {
+    "id": 82,
+    "vocab": "请",
+    "romanization": "qǐng",
+    "meaning": [
+      "to ask",
+      "to invite",
+      "please (do sth)",
+      "to treat (to a meal etc)",
+      "to request"
+    ]
+  },
+  {
+    "id": 83,
+    "vocab": "去",
+    "romanization": "qù",
+    "meaning": [
+      "to go",
+      "to go to (a place)",
+      "to cause to go or send (sb)",
+      "to remove",
+      "to get rid of",
+      "(when used either before or after a verb) to go in order to do sth",
+      "to be apart from in space or time",
+      "(after a verb of motion indicates movement away from the speaker)",
+      "(used after certain verbs to indicate detachment or separation)",
+      "(of a time or an event etc) just passed or elapsed"
+    ]
+  },
+  {
+    "id": 84,
+    "vocab": "热",
+    "romanization": "rè",
+    "meaning": [
+      "to warm up",
+      "to heat up",
+      "hot (of weather)",
+      "heat",
+      "fervent"
+    ]
+  },
+  {
+    "id": 85,
+    "vocab": "人",
+    "romanization": "rén",
+    "meaning": [
+      "man",
+      "person",
+      "people",
+      "CL:個|个",
+      "位[wèi]"
+    ]
+  },
+  {
+    "id": 86,
+    "vocab": "认识",
+    "romanization": "rèn shi",
+    "meaning": [
+      "to know",
+      "to recognize",
+      "to be familiar with",
+      "to get acquainted with sb",
+      "knowledge",
+      "understanding",
+      "awareness",
+      "cognition"
+    ]
+  },
+  {
+    "id": 87,
+    "vocab": "日",
+    "romanization": "rì",
+    "meaning": [
+      "sun",
+      "day",
+      "date",
+      "day of the month",
+      "abbr. for 日本 Japan"
+    ]
+  },
+  {
+    "id": 88,
+    "vocab": "三",
+    "romanization": "sān",
+    "meaning": [
+      "three",
+      "3"
+    ]
+  },
+  {
+    "id": 89,
+    "vocab": "商店",
+    "romanization": "shāng diàn",
+    "meaning": [
+      "store",
+      "shop",
+      "CL:家",
+      "個|个[gè]"
+    ]
+  },
+  {
+    "id": 90,
+    "vocab": "上",
+    "romanization": "shàng",
+    "meaning": [
+      "on top",
+      "upon",
+      "above",
+      "upper",
+      "previous",
+      "first (of multiple parts)",
+      "to climb",
+      "to get onto",
+      "to go up",
+      "to attend (class or university)"
+    ]
+  },
+  {
+    "id": 91,
+    "vocab": "上午",
+    "romanization": "shàng wǔ",
+    "meaning": [
+      "morning",
+      "CL:個|个[gè]"
+    ]
+  },
+  {
+    "id": 92,
+    "vocab": "少",
+    "romanization": "shǎo",
+    "meaning": [
+      "few",
+      "little",
+      "lack"
+    ]
+  },
+  {
+    "id": 93,
+    "vocab": "谁",
+    "romanization": "shéi",
+    "meaning": [
+      "who",
+      "also pr. [shuí]"
+    ]
+  },
+  {
+    "id": 94,
+    "vocab": "什么",
+    "romanization": "shén me",
+    "meaning": [
+      "what?",
+      "who?",
+      "something",
+      "anything"
+    ]
+  },
+  {
+    "id": 95,
+    "vocab": "十",
+    "romanization": "shí",
+    "meaning": [
+      "ten",
+      "10"
+    ]
+  },
+  {
+    "id": 96,
+    "vocab": "时候",
+    "romanization": "shí hou",
+    "meaning": [
+      "time",
+      "length of time",
+      "moment",
+      "period"
+    ]
+  },
+  {
+    "id": 97,
+    "vocab": "是",
+    "romanization": "shì",
+    "meaning": [
+      "is",
+      "are",
+      "am",
+      "yes",
+      "to be"
+    ]
+  },
+  {
+    "id": 98,
+    "vocab": "书",
+    "romanization": "shū",
+    "meaning": [
+      "book",
+      "letter",
+      "CL:本",
+      "冊|册",
+      "部[bù]",
+      "see also 書經|书经 Book of History"
+    ]
+  },
+  {
+    "id": 99,
+    "vocab": "水",
+    "romanization": "shuǐ",
+    "meaning": [
+      "water",
+      "river",
+      "liquid",
+      "beverage",
+      "additional charges or income",
+      "(of clothes) classifier for number of washes"
+    ]
+  },
+  {
+    "id": 100,
+    "vocab": "水果",
+    "romanization": "shuǐ guǒ",
+    "meaning": [
+      "fruit",
+      "CL:個|个[gè]"
+    ]
+  },
+  {
+    "id": 101,
+    "vocab": "睡觉",
+    "romanization": "shuì jiào",
+    "meaning": [
+      "to go to bed",
+      "to sleep"
+    ]
+  },
+  {
+    "id": 102,
+    "vocab": "说话",
+    "romanization": "shuō huà",
+    "meaning": [
+      "to speak",
+      "to say",
+      "to talk",
+      "to gossip",
+      "to tell stories",
+      "talk",
+      "word"
+    ]
+  },
+  {
+    "id": 103,
+    "vocab": "四",
+    "romanization": "sì",
+    "meaning": [
+      "four",
+      "4"
+    ]
+  },
+  {
+    "id": 104,
+    "vocab": "岁",
+    "romanization": "suì",
+    "meaning": [
+      "classifier for years (of age)",
+      "year",
+      "year (of crop harvests)"
+    ]
+  },
+  {
+    "id": 105,
+    "vocab": "他",
+    "romanization": "tā",
+    "meaning": [
+      "he or him",
+      "(used for either sex when the sex is unknown or unimportant)",
+      "(used before sb's name for emphasis)",
+      "(used as a meaningless mock object)",
+      "other",
+      "another"
+    ]
+  },
+  {
+    "id": 106,
+    "vocab": "她",
+    "romanization": "tā",
+    "meaning": [
+      "she"
+    ]
+  },
+  {
+    "id": 107,
+    "vocab": "太",
+    "romanization": "tài",
+    "meaning": [
+      "highest",
+      "greatest",
+      "too (much)",
+      "very",
+      "extremely"
+    ]
+  },
+  {
+    "id": 108,
+    "vocab": "天气",
+    "romanization": "tiān qì",
+    "meaning": [
+      "weather"
+    ]
+  },
+  {
+    "id": 109,
+    "vocab": "听",
+    "romanization": "tīng",
+    "meaning": [
+      "to listen",
+      "to hear",
+      "to obey",
+      "a can (loanword from English \"tin\")",
+      "classifier for canned beverages"
+    ]
+  },
+  {
+    "id": 110,
+    "vocab": "同学",
+    "romanization": "tóng xué",
+    "meaning": [
+      "to study at the same school",
+      "fellow student",
+      "classmate",
+      "CL:位",
+      "個|个[gè]"
+    ]
+  },
+  {
+    "id": 111,
+    "vocab": "喂",
+    "romanization": "wèi",
+    "meaning": [
+      "to feed"
+    ]
+  },
+  {
+    "id": 112,
+    "vocab": "我",
+    "romanization": "wǒ",
+    "meaning": [
+      "I",
+      "me",
+      "my"
+    ]
+  },
+  {
+    "id": 113,
+    "vocab": "我们",
+    "romanization": "wǒ men",
+    "meaning": [
+      "we",
+      "us",
+      "ourselves",
+      "our"
+    ]
+  },
+  {
+    "id": 114,
+    "vocab": "五",
+    "romanization": "wǔ",
+    "meaning": [
+      "five",
+      "5"
+    ]
+  },
+  {
+    "id": 115,
+    "vocab": "喜欢",
+    "romanization": "xǐ huan",
+    "meaning": [
+      "to like",
+      "to be fond of"
+    ]
+  },
+  {
+    "id": 116,
+    "vocab": "下",
+    "romanization": "xià",
+    "meaning": [
+      "down",
+      "downwards",
+      "below",
+      "lower",
+      "later",
+      "next (week etc)",
+      "second (of two parts)",
+      "to decline",
+      "to go down"
+    ]
+  },
+  {
+    "id": 117,
+    "vocab": "下午",
+    "romanization": "xià wǔ",
+    "meaning": [
+      "afternoon",
+      "CL:個|个[gè]",
+      "p.m."
+    ]
+  },
+  {
+    "id": 118,
+    "vocab": "下雨",
+    "romanization": "xià yǔ",
+    "meaning": [
+      "to rain",
+      "rainy"
+    ]
+  },
+  {
+    "id": 119,
+    "vocab": "先生",
+    "romanization": "xiān sheng",
+    "meaning": [
+      "teacher",
+      "husband",
+      "doctor (topolect)",
+      "CL:位[wèi]"
+    ]
+  },
+  {
+    "id": 120,
+    "vocab": "现在",
+    "romanization": "xiàn zài",
+    "meaning": [
+      "now",
+      "at present",
+      "at the moment",
+      "modern",
+      "current",
+      "nowadays"
+    ]
+  },
+  {
+    "id": 121,
+    "vocab": "想",
+    "romanization": "xiǎng",
+    "meaning": [
+      "to think",
+      "to believe",
+      "to suppose",
+      "to wish",
+      "to want",
+      "to miss"
+    ]
+  },
+  {
+    "id": 122,
+    "vocab": "小",
+    "romanization": "xiǎo",
+    "meaning": [
+      "small",
+      "tiny",
+      "few",
+      "young"
+    ]
+  },
+  {
+    "id": 123,
+    "vocab": "小姐",
+    "romanization": "xiǎo jie",
+    "meaning": [
+      "young lady",
+      "miss",
+      "(slang) prostitute",
+      "CL:個|个",
+      "位[wèi]"
+    ]
+  },
+  {
+    "id": 124,
+    "vocab": "些",
+    "romanization": "xiē",
+    "meaning": [
+      "some",
+      "few",
+      "several",
+      "measure word indicating a small amount or small number (greater than 1)"
+    ]
+  },
+  {
+    "id": 125,
+    "vocab": "写",
+    "romanization": "xiě",
+    "meaning": [
+      "to write"
+    ]
+  },
+  {
+    "id": 126,
+    "vocab": "谢谢",
+    "romanization": "xiè xie",
+    "meaning": [
+      "to thank",
+      "thanks"
+    ]
+  },
+  {
+    "id": 127,
+    "vocab": "星期",
+    "romanization": "xīng qī",
+    "meaning": [
+      "week",
+      "CL:個|个[gè]",
+      "day of the week",
+      "Sunday"
+    ]
+  },
+  {
+    "id": 128,
+    "vocab": "学生",
+    "romanization": "xué sheng",
+    "meaning": [
+      "student",
+      "schoolchild"
+    ]
+  },
+  {
+    "id": 129,
+    "vocab": "学习",
+    "romanization": "xué xí",
+    "meaning": [
+      "to learn",
+      "to study"
+    ]
+  },
+  {
+    "id": 130,
+    "vocab": "学校",
+    "romanization": "xué xiào",
+    "meaning": [
+      "school",
+      "CL:所[suǒ]"
+    ]
+  },
+  {
+    "id": 131,
+    "vocab": "一",
+    "romanization": "yī",
+    "meaning": [
+      "one",
+      "1",
+      "single",
+      "a (article)",
+      "as soon as",
+      "entire",
+      "whole",
+      "all",
+      "throughout",
+      "\"one\" radical in Chinese characters (Kangxi radical 1)"
+    ]
+  },
+  {
+    "id": 132,
+    "vocab": "衣服",
+    "romanization": "yī fu",
+    "meaning": [
+      "clothes",
+      "CL:件",
+      "套[tào]"
+    ]
+  },
+  {
+    "id": 133,
+    "vocab": "医生",
+    "romanization": "yī shēng",
+    "meaning": [
+      "doctor",
+      "CL:個|个",
+      "位",
+      "名[míng]"
+    ]
+  },
+  {
+    "id": 134,
+    "vocab": "医院",
+    "romanization": "yī yuàn",
+    "meaning": [
+      "hospital",
+      "CL:所",
+      "家",
+      "座[zuò]"
+    ]
+  },
+  {
+    "id": 135,
+    "vocab": "椅子",
+    "romanization": "yǐ zi",
+    "meaning": [
+      "chair",
+      "CL:把",
+      "套[tào]"
+    ]
+  },
+  {
+    "id": 136,
+    "vocab": "有",
+    "romanization": "yǒu",
+    "meaning": [
+      "to have",
+      "there is",
+      "there are",
+      "to exist",
+      "to be"
+    ]
+  },
+  {
+    "id": 137,
+    "vocab": "月",
+    "romanization": "yuè",
+    "meaning": [
+      "moon",
+      "month",
+      "CL:個|个",
+      "輪|轮[lún]"
+    ]
+  },
+  {
+    "id": 138,
+    "vocab": "在",
+    "romanization": "zài",
+    "meaning": [
+      "(located) at",
+      "(to be) in",
+      "to exist",
+      "in the middle of doing sth",
+      "(indicating an action in progress)"
+    ]
+  },
+  {
+    "id": 139,
+    "vocab": "再见",
+    "romanization": "zài jiàn",
+    "meaning": [
+      "goodbye",
+      "see you again later"
+    ]
+  },
+  {
+    "id": 140,
+    "vocab": "怎么",
+    "romanization": "zěn me",
+    "meaning": [
+      "variant of 怎麼|怎么[zěn me]"
+    ]
+  },
+  {
+    "id": 141,
+    "vocab": "怎么样",
+    "romanization": "zěn me yàng",
+    "meaning": [
+      "how?",
+      "how about?",
+      "how was it?",
+      "how are things?"
+    ]
+  },
+  {
+    "id": 142,
+    "vocab": "这",
+    "romanization": "zhè",
+    "meaning": [
+      "this",
+      "these",
+      "(commonly pr.  before a classifier",
+      "esp. in Beijing)"
+    ]
+  },
+  {
+    "id": 143,
+    "vocab": "中国",
+    "romanization": "Zhōng guó",
+    "meaning": [
+      "China",
+      "Middle Kingdom"
+    ]
+  },
+  {
+    "id": 144,
+    "vocab": "中午",
+    "romanization": "zhōng wǔ",
+    "meaning": [
+      "noon",
+      "midday",
+      "CL:個|个[gè]"
+    ]
+  },
+  {
+    "id": 145,
+    "vocab": "住",
+    "romanization": "zhù",
+    "meaning": [
+      "to live",
+      "to dwell",
+      "to stay",
+      "to reside",
+      "to stop",
+      "(suffix indicating firmness",
+      "steadiness",
+      "or coming to a halt)"
+    ]
+  },
+  {
+    "id": 146,
+    "vocab": "桌子",
+    "romanization": "zhuō zi",
+    "meaning": [
+      "table",
+      "desk",
+      "CL:張|张",
+      "套[tào]"
+    ]
+  },
+  {
+    "id": 147,
+    "vocab": "字",
+    "romanization": "zì",
+    "meaning": [
+      "letter",
+      "symbol",
+      "character",
+      "word",
+      "CL:個|个[gè]",
+      "courtesy or style name traditionally given to males aged 20 in dynastic China"
+    ]
+  },
+  {
+    "id": 148,
+    "vocab": "昨天",
+    "romanization": "zuó tiān",
+    "meaning": [
+      "yesterday"
+    ]
+  },
+  {
+    "id": 149,
+    "vocab": "坐",
+    "romanization": "zuò",
+    "meaning": [
+      "to sit",
+      "to take a seat",
+      "to take (a bus",
+      "airplane etc)",
+      "to bear fruit",
+      "variant of 座[zuò]"
+    ]
+  },
+  {
+    "id": 150,
+    "vocab": "做",
+    "romanization": "zuò",
+    "meaning": [
+      "to do",
+      "to make",
+      "to produce",
+      "to write",
+      "to compose",
+      "to act as",
+      "to engage in",
+      "to hold (a party)",
+      "to be",
+      "to become",
+      "to function (in some capacity)",
+      "to serve as",
+      "to be used for",
+      "to form (a bond or relationship)",
+      "to pretend",
+      "to feign",
+      "to act a part",
+      "to put on appearance"
+    ]
+  }
+]
