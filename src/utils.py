@@ -17,12 +17,22 @@ def refresh():
     os.execl(python, python, * sys.argv)
 
 def add_vocab(keys):
+    # get values from keys
     word = keys[0].strip()
+    if word == "":
+        return 0, "Missing word"
     definitions = [x.strip() for x in keys[1].split(",")]
+    if definitions[0] == "":
+        return 0, "Missing definition"
     if len(keys) == 3:
         roman = keys[2].strip()
+        if roman == "":
+            return 0, "Missing romanization"
 
     # add to dictionary
+    # returns tuple:
+    # (0 on failure, string message)
+    # (1 on success, string message)
     if os.path.exists("../data/user/dict.json"):
         with open("../data/user/dict.json", "r") as word_list:
             word_decoded = json.load(word_list)
@@ -52,7 +62,7 @@ def add_vocab(keys):
     with open("../data/user/progress.json", "w") as prog_out:
         json.dump(prog_decoded, prog_out, ensure_ascii = False)
 
-    return "Added " + word + " to deck"
+    return 1, "Added " + word + " to deck"
 
 
 

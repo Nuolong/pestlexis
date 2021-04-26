@@ -116,7 +116,7 @@ class Window:
         debug("In add_word")
         add_word_window = tk.Toplevel(self.root)
         add_word_window.title("Append Lexis")
-        add_word_window.geometry("400x400")
+        add_word_window.geometry("400x450")
         add_word_window.config(background = background_clr)
 
         lb_vocab = tk.Label(
@@ -135,7 +135,6 @@ class Window:
             font=(text_box_font, subtext_size),
             justify='center'
         )
-        et_vocab.insert(0, "vocab")
 
         lb_def = tk.Label(
             add_word_window,
@@ -199,19 +198,6 @@ class Window:
             text="Yes",
         )
 
-        bt_start = tk.Button(
-            add_word_window,
-            text="Start",
-            width=10,
-            height=2,
-            bg="black",
-            font=(subtext_font, subtext_size),
-            fg="white",
-            anchor="center",
-            highlightthickness=0,
-            command=partial(self.get_vals_word, et_vocab, tx_def, et_roman)
-        )
-
         # to use in get_vals()
         lb_result = tk.Label(
             add_word_window,
@@ -221,6 +207,19 @@ class Window:
             height=1,
             font=(subtext_font, subtext_size),
             anchor="center"
+        )
+
+        bt_add = tk.Button(
+            add_word_window,
+            text="Add",
+            width=10,
+            height=2,
+            bg="black",
+            font=(subtext_font, subtext_size),
+            fg="white",
+            anchor="center",
+            highlightthickness=0,
+            command=partial(self.get_vals_word, lb_result, et_vocab, tx_def, et_roman)
         )
 
         # vocab
@@ -238,7 +237,7 @@ class Window:
         et_roman.pack()
 
         # start
-        bt_start.pack(pady=(subtext_size,0))
+        bt_add.pack(pady=(subtext_size,0))
         pass
 
     def pest_settings(self):
@@ -317,7 +316,7 @@ class Window:
         self.et_roman.insert(0, "roman")
 
         bt_start = tk.Button(
-            text="Start",
+            text="Add",
             width=10,
             height=2,
             bg="black",
@@ -361,25 +360,30 @@ class Window:
         self.lb_result.config(textvariable=result)
         self.lb_result.pack()
 
-    # get all active entry values
-    def get_vals_word(self, *args):
+    # gets fields for adding a new word and adds word
+    def get_vals_word(self, label, *args):
         keys = []
         result = tk.StringVar()
 
         for entry in args:
             if entry.winfo_class() == 'Text':
-                print("TEXT BOX")
                 keys.append(entry.get("1.0", "end"))
             elif entry['state'] != 'disabled':
-                print("ENTRY")
                 keys.append(entry.get())
 
-        print(keys)
+        status, strg = utils.add_vocab(keys)
+        result.set(strg)
 
-        result.set(utils.add_vocab(keys))
+        label.config(textvariable=result)
+        label.pack()
 
-        self.lb_result.config(textvariable=result)
-        self.lb_result.pack()
+        # clear the boxes after adding successfully.
+        if status:
+            for entry in args:
+                if entry.winfo_class() == 'Text':
+                    entry.delete("1.0", "end")
+                else:
+                    entry.delete(0, "end")
 
     # No: 0; Yes: 1
     def roman_sel(self, selection, et):
