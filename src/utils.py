@@ -2,6 +2,7 @@
 
 import sys, os
 import json
+import time
 
 # debug print
 def debug(string):
@@ -59,7 +60,7 @@ def add_vocab(keys):
     # add to progress boxes
     with open("../data/user/progress.json", "r") as progress:
         prog_decoded = json.load(progress)
-        prog_decoded['1'].append(word)
+        prog_decoded['1'].append((word, int(time.time())))
 
     with open("../data/user/progress.json", "w") as prog_out:
         json.dump(prog_decoded, prog_out, ensure_ascii = False)

@@ -59,8 +59,10 @@ class Window:
     # TODO: homepage
     # state True: train
     # state False: new user
-    def homepage(self, state):
-        debug("In need_data_page()")
+    def homepage(self):
+        debug("In homepage")
+        elements = []
+
 
         # menu at top
         menubar = tk.Menu(
@@ -87,7 +89,15 @@ class Window:
         menubar.add_cascade(label="Menu", menu=filemenu)
         self.root.config(menu=menubar)
 
-        if not state:
+        if not os.path.exists("../data/user/dict.json"):
+            lb_title = tk.Label(
+                text="Pestlexis",
+                bg="black", fg="white",
+                width=100,
+                font=(title_font, title_size),
+                anchor="center"
+            )
+
             lb_need_data = tk.Label(
                 text="Welcome new user! \nImport your dictionary \nor add new words.",
                 bg="black", fg="#798CFF",
@@ -118,10 +128,27 @@ class Window:
             )
 
             # display widgets
-            self.lb_title.pack(pady=(50, subtext_size))
+            lb_title.pack(pady=(50, subtext_size))
             lb_need_data.pack()
             bt_import.pack(pady=(30, subtext_size))
             bt_add_word.pack(pady=(30, subtext_size))
+            elements.extend([lb_title, lb_need_data, bt_import, bt_add_word])
+
+        else:
+            for element in elements:
+                element.destroy()
+            elements = []
+
+            word, meaning, roman, lvl = train.get_word()
+
+            # TODO
+
+            if roman is None:
+                elements.extend([])
+            else:
+                elements.extend([])
+
+
 
     # TODO: these both
     def add_word(self):

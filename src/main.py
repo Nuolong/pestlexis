@@ -11,12 +11,7 @@ def main():
     #data = [x for x in os.listdir("../data/user/") if len(x) >= 5 and  x[-5:] == ".json"]
     #if not data:
 
-    if not os.path.exists("../data/user/dict.json"):
-        wd.homepage(False)
-        wd.start()
-        exit(1)
-
-    wd.homepage(True)
+    wd.homepage()
     wd.start()
 
 
