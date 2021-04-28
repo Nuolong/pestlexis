@@ -7,6 +7,7 @@ import utils
 from utils import debug
 from functools import partial
 import os
+import time
 
 # constants
 background_clr = "#000000"
@@ -18,6 +19,7 @@ text_box_font = "Consolas"
 title_font = "Times New Roman"
 title_size = 45
 
+
 class Window:
     def __init__(self):
         # window settings
@@ -25,6 +27,7 @@ class Window:
         self.root.title('Pestlexis')
         self.root.config(background = background_clr)
         self.root.geometry("500x500")
+        self.elements = []
         self.lb_title = tk.Label(
             text="Pestlexis",
             bg="black", fg="white",
@@ -62,8 +65,6 @@ class Window:
     # state False: new user
     def homepage(self):
         debug("In homepage")
-        elements = []
-
 
         # menu at top
         menubar = tk.Menu(
@@ -91,6 +92,10 @@ class Window:
         self.root.config(menu=menubar)
 
         if not os.path.exists("../data/user/dict.json"):
+            for element in self.elements:
+                element.destroy()
+            self.elements = []
+
             lb_title = tk.Label(
                 text="Pestlexis",
                 bg="black", fg="white",
@@ -133,12 +138,12 @@ class Window:
             lb_need_data.pack()
             bt_import.pack(pady=(30, subtext_size))
             bt_add_word.pack(pady=(30, subtext_size))
-            elements.extend([lb_title, lb_need_data, bt_import, bt_add_word])
+            self.elements.extend([lb_title, lb_need_data, bt_import, bt_add_word])
 
         else:
-            for element in elements:
+            for element in self.elements:
                 element.destroy()
-            elements = []
+            self.elements = []
 
             word, meaning, roman, lvl = train.get_word()
 
@@ -153,7 +158,7 @@ class Window:
                     pady=40
                 )
                 lb_finished.pack(pady=(50, subtext_size))
-                elements.append(lb_finished)
+                self.elements.append(lb_finished)
             elif roman is None:
                 lb_word = tk.Label(
                     text=word,
@@ -202,9 +207,13 @@ class Window:
                 lb_def.pack()
                 tx_def.pack()
                 bt_check.pack()
-                elements.extend([lb_word, lb_def, tx_def])
+                self.elements.extend([lb_word, lb_def, tx_def, bt_check])
 
             else:
+                for element in self.elements:
+                    element.destroy()
+                self.elements = []
+
                 lb_word = tk.Label(
                     text=word,
                     bg="black", fg="#798CFF",
@@ -278,7 +287,7 @@ class Window:
                 lb_roman.pack()
                 et_roman.pack()
                 bt_check.pack()
-                elements.extend([lb_word, lb_def, tx_def, lb_roman, et_roman])
+                self.elements.extend([lb_word, lb_def, tx_def, lb_roman, et_roman, bt_check])
 
     # TODO: these both
     def add_word(self):
@@ -559,10 +568,12 @@ class Window:
 
         label.config(textvariable=result)
         label.pack()
+        self.root.update_idletasks()
 
         # restart app 1 second after success
         if status:
-            print("Import success")
+            time.sleep(1)
+            debug("Import success")
             utils.refresh()
 
 
@@ -610,3 +621,9 @@ class Window:
 
         label.config(textvariable=result)
         label.pack()
+        self.elements.append(label)
+
+        self.root.update_idletasks()
+
+        time.sleep(2)
+        self.homepage()

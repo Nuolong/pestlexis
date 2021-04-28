@@ -2,6 +2,7 @@
 
 import json
 import random
+import time
 
 # TODO: currently dummy: make configurable
 TWO = 86400
@@ -63,6 +64,10 @@ def get_word():
 
 # checks if input is correct
 def validate(word, *args):
+    tx_def = args[0]
+    if len(args) == 2:
+        et_roman = args[1]
+
     def_inp = [x.strip() for x in tx_def.get("1.0", "end").split(",")]
     try:
         roman_inp = et_roman.get()
@@ -74,7 +79,7 @@ def validate(word, *args):
 
     # check valid definitions
     for defi in def_inp:
-        if defi.lower() not in map(str.upper, words_json[word]['definitions']):
+        if defi.lower() not in map(str.lower, words_json[word]['definitions']):
             return False
         continue
 
@@ -92,13 +97,16 @@ def correct(word, lvl):
 
     # the word _will_ be in the front of the queue
     word_test = prog_json[lvl].pop(0)
+    print(word_test)
 
     # maybe don't even need to pass word parameter - test later
     if lvl == '5':
-        prog_json[lvl].append((word_test, int(time.time())))
+        prog_json[lvl].append((word_test[0], int(time.time())))
     else:
+        lvl = int(lvl)
         lvl += 1
-        prog_json[lvl].append((word_test, int(time.time())))
+        lvl = str(lvl)
+        prog_json[lvl].append((word_test[0], int(time.time())))
 
     with open("../data/user/progress.json", "w") as prog_out:
         json.dump(prog_json, prog_out, ensure_ascii = False)
@@ -111,7 +119,7 @@ def incorrect(word, lvl):
         prog_json = json.load(prog)
 
     word_test = prog_json[lvl].pop(0)
-    prog_json['1'].append((word_test, int(time.time())))
+    prog_json['1'].append((word_test[0], int(time.time())))
 
     with open("../data/user/progress.json", "w") as prog_out:
         json.dump(prog_json, prog_out, ensure_ascii = False)
