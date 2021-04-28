@@ -60,7 +60,9 @@ def add_vocab(keys):
     # add to progress boxes
     with open("../data/user/progress.json", "r") as progress:
         prog_decoded = json.load(progress)
+        print(prog_decoded['1'])
         prog_decoded['1'].append((word, int(time.time())))
+        print(prog_decoded['1'])
 
     with open("../data/user/progress.json", "w") as prog_out:
         json.dump(prog_decoded, prog_out, ensure_ascii = False)

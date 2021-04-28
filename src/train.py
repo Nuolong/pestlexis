@@ -15,7 +15,7 @@ def choose_word():
         prog_json = json.load(prog)
 
     if prog_json['1']:
-        word, _ = prog_json['1']
+        word, _ = prog_json['1'][0]
         return word, '1'
 
     # yes, I could avoid code duplication here but that's a later-job
@@ -61,6 +61,30 @@ def get_word():
 
     return word, meaning, roman, lvl
 
+# checks if input is correct
+def validate(word, *args):
+    def_inp = [x.strip() for x in tx_def.get("1.0", "end").split(",")]
+    try:
+        roman_inp = et_roman.get()
+    except NameError:
+        roman_inp = None
+
+    with open("../data/user/dict.json", "r") as words:
+        words_json = json.load(words)
+
+    # check valid definitions
+    for defi in def_inp:
+        if defi.lower() not in map(str.upper, words_json[word]['definitions']):
+            return False
+        continue
+
+    # check valid romanization
+    if roman_inp is not None:
+        if roman_inp.lower() != words_json[word]['romanization'].lower():
+            return False
+
+    return True
+
 # move word to next level in progress
 def correct(word, lvl):
     with open("../data/user/progress.json", "r") as prog:
@@ -79,6 +103,8 @@ def correct(word, lvl):
     with open("../data/user/progress.json", "w") as prog_out:
         json.dump(prog_json, prog_out, ensure_ascii = False)
 
+    return 'Correct!'
+
 # move word back to level 1
 def incorrect(word, lvl):
     with open("../data/user/progress.json", "r") as prog:
@@ -89,3 +115,5 @@ def incorrect(word, lvl):
 
     with open("../data/user/progress.json", "w") as prog_out:
         json.dump(prog_json, prog_out, ensure_ascii = False)
+
+    return 'Incorrect.'

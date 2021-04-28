@@ -6,6 +6,7 @@ import train
 import utils
 from utils import debug
 from functools import partial
+import os
 
 # constants
 background_clr = "#000000"
@@ -141,14 +142,143 @@ class Window:
 
             word, meaning, roman, lvl = train.get_word()
 
-            # TODO
+            # no words to study right now
+            if word is None:
+                lb_finished = tk.Label(
+                    text="Check back later! \nNo words are ready to be trained.",
+                    bg="black", fg="#798CFF",
+                    width=100, height=1,
+                    font=(subtext_font, subtext_size),
+                    anchor="center",
+                    pady=40
+                )
+                lb_finished.pack(pady=(50, subtext_size))
+                elements.append(lb_finished)
+            elif roman is None:
+                lb_word = tk.Label(
+                    text=word,
+                    bg="black", fg="#798CFF",
+                    width=100, height=1,
+                    font=(subtext_font, subtext_size),
+                    anchor="center",
+                    pady=40
+                )
+                lb_def = tk.Label(
+                    text="Definition:",
+                    bg="black", fg="white",
+                    width=100, height=1,
+                    font=(subtext_font, subtext_size),
+                    anchor="center"
+                )
+                tx_def = tk.Text(
+                    bg="black", fg="white",
+                    width=text_width,
+                    height=entry_width/4,
+                    font=(text_box_font, subtext_size)
+                )
 
-            if roman is None:
-                elements.extend([])
+                lb_result = tk.Label(
+                    bg="black",
+                    fg="red",
+                    width=100,
+                    height=1,
+                    font=(subtext_font, subtext_size),
+                    anchor="center"
+                )
+
+                bt_check = tk.Button(
+                    text="Check",
+                    width=10,
+                    height=2,
+                    bg="black",
+                    font=(subtext_font, subtext_size),
+                    fg="white",
+                    anchor="center",
+                    highlightthickness=0,
+                    command=partial(self.check_ans, word, lvl, lb_result, tx_def)
+                )
+
+                lb_word.pack()
+                lb_def.pack()
+                tx_def.pack()
+                bt_check.pack()
+                elements.extend([lb_word, lb_def, tx_def])
+
             else:
-                elements.extend([])
+                lb_word = tk.Label(
+                    text=word,
+                    bg="black", fg="#798CFF",
+                    width=100, height=1,
+                    font=(subtext_font, subtext_size),
+                    anchor="center",
+                    pady=40
+                )
+                lb_def = tk.Label(
+                    add_word_window,
+                    text="Definition:",
+                    bg="black", fg="white",
+                    width=100, height=1,
+                    font=(subtext_font, subtext_size),
+                    anchor="center"
+                )
+                tx_def = tk.Text(
+                    add_word_window,
+                    bg="black", fg="white",
+                    width=text_width,
+                    height=entry_width/4,
+                    font=(text_box_font, subtext_size)
+                )
 
+                lb_roman = tk.Label(
+                    add_word_window,
+                    text="Romanization:",
+                    bg="black",
+                    fg="white",
+                    width=100,
+                    height=1,
+                    font=(subtext_font, subtext_size),
+                    anchor="center"
+                )
 
+                et_roman = tk.Entry(
+                    add_word_window,
+                    bg="black", fg="white",
+                    width=entry_width,
+                    font=(text_box_font, subtext_size),
+                    justify='center',
+                    disabledbackground="#636363"
+                )
+
+                lb_result = tk.Label(
+                    add_word_window,
+                    bg="black",
+                    fg="red",
+                    width=100,
+                    height=1,
+                    font=(subtext_font, subtext_size),
+                    anchor="center"
+                )
+
+                bt_check = tk.Button(
+                    add_word_window,
+                    text="Check",
+                    width=10,
+                    height=2,
+                    bg="black",
+                    font=(subtext_font, subtext_size),
+                    fg="white",
+                    anchor="center",
+                    highlightthickness=0,
+                    command=partial(self.check_ans, word, lvl, lb_result, tx_def, et_roman)
+                )
+
+                lb_word.pack()
+                lb_def.pack()
+                tx_def.pack()
+                lb_roman.pack()
+                et_roman.pack()
+                bt_check.pack()
+                elements.extend([lb_word, lb_def, tx_def, lb_roman, et_roman])
 
     # TODO: these both
     def add_word(self):
@@ -468,6 +598,15 @@ class Window:
         else:
             et.config(state='normal')
 
-    def default_page(self):
-        debug("In default_page()")
-        # TODO: do program
+    def check_ans(self, word, lvl, label, *args):
+        result = tk.StringVar()
+
+        if train.validate(word, *args):
+            result.set(train.correct(word, lvl))
+            label.config(fg='green')
+        else:
+            result.set(train.incorrect(word, lvl))
+            label.config(fg='red')
+
+        label.config(textvariable=result)
+        label.pack()
