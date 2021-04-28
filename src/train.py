@@ -80,12 +80,25 @@ def validate(word, *args):
     # check valid definitions
     for defi in def_inp:
         if defi.lower() not in map(str.lower, words_json[word]['definitions']):
+            tx_def.config(fg='green')
+            tx_def.delete("1.0", "end")
+            tx_def.insert("end", ", ".join(words_json[word]['definitions']))
+            if roman_inp is not None:
+                et_roman.config(fg='green')
+                et_roman.delete(0, "end")
+                et_roman.insert(0, words_json[word]['romanization'])
             return False
         continue
 
     # check valid romanization
     if roman_inp is not None:
-        if roman_inp.lower() != words_json[word]['romanization'].lower():
+        if roman_inp.lower().strip() != words_json[word]['romanization'].lower().strip():
+            tx_def.config(fg='green')
+            tx_def.delete("1.0", "end")
+            tx_def.insert("end", ", ".join(words_json[word]['definitions']))
+            et_roman.config(fg='green')
+            et_roman.delete(0, "end")
+            et_roman.insert(0, words_json[word]['romanization'])
             return False
 
     return True
@@ -97,7 +110,6 @@ def correct(word, lvl):
 
     # the word _will_ be in the front of the queue
     word_test = prog_json[lvl].pop(0)
-    print(word_test)
 
     # maybe don't even need to pass word parameter - test later
     if lvl == '5':

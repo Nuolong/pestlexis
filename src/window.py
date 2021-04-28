@@ -164,7 +164,7 @@ class Window:
                     text=word,
                     bg="black", fg="#798CFF",
                     width=100, height=1,
-                    font=(subtext_font, subtext_size),
+                    font=(subtext_font, title_size),
                     anchor="center",
                     pady=40
                 )
@@ -206,7 +206,7 @@ class Window:
                 lb_word.pack()
                 lb_def.pack()
                 tx_def.pack()
-                bt_check.pack()
+                bt_check.pack(pady=(subtext_size,0))
                 self.elements.extend([lb_word, lb_def, tx_def, bt_check])
 
             else:
@@ -218,12 +218,11 @@ class Window:
                     text=word,
                     bg="black", fg="#798CFF",
                     width=100, height=1,
-                    font=(subtext_font, subtext_size),
+                    font=(subtext_font, title_size),
                     anchor="center",
                     pady=40
                 )
                 lb_def = tk.Label(
-                    add_word_window,
                     text="Definition:",
                     bg="black", fg="white",
                     width=100, height=1,
@@ -231,7 +230,6 @@ class Window:
                     anchor="center"
                 )
                 tx_def = tk.Text(
-                    add_word_window,
                     bg="black", fg="white",
                     width=text_width,
                     height=entry_width/4,
@@ -239,7 +237,6 @@ class Window:
                 )
 
                 lb_roman = tk.Label(
-                    add_word_window,
                     text="Romanization:",
                     bg="black",
                     fg="white",
@@ -250,7 +247,6 @@ class Window:
                 )
 
                 et_roman = tk.Entry(
-                    add_word_window,
                     bg="black", fg="white",
                     width=entry_width,
                     font=(text_box_font, subtext_size),
@@ -259,7 +255,6 @@ class Window:
                 )
 
                 lb_result = tk.Label(
-                    add_word_window,
                     bg="black",
                     fg="red",
                     width=100,
@@ -269,7 +264,6 @@ class Window:
                 )
 
                 bt_check = tk.Button(
-                    add_word_window,
                     text="Check",
                     width=10,
                     height=2,
@@ -284,9 +278,9 @@ class Window:
                 lb_word.pack()
                 lb_def.pack()
                 tx_def.pack()
-                lb_roman.pack()
+                lb_roman.pack(pady=(subtext_size,0))
                 et_roman.pack()
-                bt_check.pack()
+                bt_check.pack(pady=(subtext_size,0))
                 self.elements.extend([lb_word, lb_def, tx_def, lb_roman, et_roman, bt_check])
 
     # TODO: these both
@@ -602,6 +596,8 @@ class Window:
                 else:
                     entry.delete(0, "end")
 
+        self.homepage()
+
     # No: 0; Yes: 1
     def roman_sel(self, selection, et):
         if not selection:
@@ -610,20 +606,45 @@ class Window:
             et.config(state='normal')
 
     def check_ans(self, word, lvl, label, *args):
+        correct = False
         result = tk.StringVar()
 
         if train.validate(word, *args):
+            correct = True
             result.set(train.correct(word, lvl))
             label.config(fg='green')
         else:
             result.set(train.incorrect(word, lvl))
             label.config(fg='red')
 
+
         label.config(textvariable=result)
-        label.pack()
         self.elements.append(label)
 
-        self.root.update_idletasks()
+        if not correct:
+            for el in self.elements:
+                if el.winfo_class() == 'Button':
+                    el.destroy()
+                    self.elements.remove(el)
 
+
+            bt_review = tk.Button(
+                text="Done",
+                width=10,
+                height=2,
+                bg="black",
+                font=(subtext_font, subtext_size),
+                fg="white",
+                anchor="center",
+                highlightthickness=0,
+                command=partial(self.homepage)
+            )
+            self.elements.append(bt_review)
+            bt_review.pack(pady=(subtext_size,0))
+            label.pack()
+            return
+
+        label.pack()
+        self.root.update_idletasks()
         time.sleep(2)
         self.homepage()
