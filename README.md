@@ -6,6 +6,9 @@
   <img src="https://img.shields.io/github/v/release/Nuolong/pestlexis?include_prereleases">
 </p>
 
+<h1 align="center"><img src="https://user-images.githubusercontent.com/10440773/116751584-41607980-a9d2-11eb-9690-0a79fb810e90.gif" alt="demo"></br></h1>
+
+
 ## Features
   * Uses [Spaced Repetition](https://en.wikipedia.org/wiki/Spaced_repetition) to quiz you with your flash deck - with customizable frequencies for each level.
   * Has optional sound and force-focus pests, which will activate every time a flashcard is ready to be answered. Perfect for those who get distracted or have issues dedicating daily time to learning a new language.
