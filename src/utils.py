@@ -3,6 +3,7 @@
 import sys, os
 import json
 import time
+import train
 
 # debug print
 def debug(string):
@@ -17,6 +18,73 @@ def refresh():
     python = sys.executable
     os.execl(python, python, * sys.argv)
 
+def save_settings(lvl2, lvl3, lvl4, lvl5):
+    # this function is very bad, but I don't feel like being smart about it yet
+    seconds = [86400, 3600, 60]
+
+    try:
+        lvl2 = list(map(int, lvl2.strip().split(":")))
+        lvl2_sec = 0
+        lvl2_sec += seconds[0] * lvl2[0]
+        lvl2_sec += seconds[1] * lvl2[1]
+        lvl2_sec += seconds[2] * lvl2[2]
+        lvl2_sec += lvl2[3]
+    except ValueError:
+        return "Level 2: Invalid Format"
+    except IndexError:
+        return "Level 2: Missing unit"
+
+    try:
+        lvl3 = list(map(int, lvl3.strip().split(":")))
+        lvl3_sec = 0
+        lvl3_sec += seconds[0] * lvl3[0]
+        lvl3_sec += seconds[1] * lvl3[1]
+        lvl3_sec += seconds[2] * lvl3[2]
+        lvl3_sec += lvl3[3]
+    except ValueError:
+        return "Level 3: Invalid Format"
+    except IndexError:
+        return "Level 3: Missing unit"
+
+    try:
+        lvl4 = list(map(int, lvl4.strip().split(":")))
+        lvl4_sec = 0
+        lvl4_sec += seconds[0] * lvl4[0]
+        lvl4_sec += seconds[1] * lvl4[1]
+        lvl4_sec += seconds[2] * lvl4[2]
+        lvl4_sec += lvl4[3]
+    except ValueError:
+        return "Level 4: Invalid Format"
+    except IndexError:
+        return "Level 4: Missing unit"
+
+    try:
+        lvl5 = list(map(int, lvl5.strip().split(":")))
+        lvl5_sec = 0
+        lvl5_sec += seconds[0] * lvl5[0]
+        lvl5_sec += seconds[1] * lvl5[1]
+        lvl5_sec += seconds[2] * lvl5[2]
+        lvl5_sec += lvl5[3]
+    except ValueError:
+        return "Level 5: Invalid Format"
+    except IndexError:
+        return "Level 5: Missing unit"
+
+    try:
+        with open("../data/user/settings.json", "r") as settings:
+            settings_dict = json.load(settings)
+    except FileNotFoundError:
+        return "Settings file missing"
+
+    settings_dict["2"] = lvl2_sec
+    settings_dict["3"] = lvl3_sec
+    settings_dict["4"] = lvl3_sec
+    settings_dict["5"] = lvl3_sec
+
+    with open("../data/user/settings.json", "w") as outfile:
+        json.dump(settings_dict, outfile, ensure_ascii = False)
+
+    return train.load_setting()
 
 # add to dictionary
 # returns tuple:
@@ -92,7 +160,7 @@ def import_dict(keys):
                 progress_json = json.load(progress)
 
                 for word in data_list:
-                    progress_json['1'].append(word[word_key])
+                    progress_json['1'].append((word[word_key], int(time.time())))
 
                     try:
                         word_dict[word[word_key]] = {}

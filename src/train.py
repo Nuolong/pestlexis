@@ -3,12 +3,28 @@
 import json
 import random
 import time
+from utils import debug
 
-# TODO: currently dummy: make configurable
+# default numbers - quite useless
 TWO = 86400
-THREE = 86400*2
-FOUR = 86400*3
-FIVE = 86400*4
+THREE = 604800
+FOUR = 1209600
+FIVE = 1814400
+
+# settings in seconds
+def load_setting():
+    debug("In load_setting")
+    with open("../data/user/settings.json", "r") as settings:
+        settings_dict = json.load(settings)
+
+    TWO = settings_dict['2']
+    THREE = settings_dict['3']
+    FOUR = settings_dict['4']
+    FIVE = settings_dict['5']
+    return "Saved"
+
+# load settings on startup
+load_setting()
 
 # finds a word in progress ready to be trained
 def choose_word():
@@ -40,7 +56,7 @@ def choose_word():
         if time.time() - logged >= FIVE:
             return word, '5'
 
-    # no words ready to be trained
+    # no words ready to be trained\
     return None, None
 
 # returns a (word, meaning, roman*) ready to be trained

@@ -424,7 +424,6 @@ class Window:
 
         # start
         bt_add.pack(pady=(subtext_size,0))
-        pass
 
     def pest_settings(self):
         debug("In pest_settings")
@@ -432,8 +431,116 @@ class Window:
 
     def train_settings(self):
         debug("In train_settings")
-        pass
+        train_window = tk.Toplevel(self.root)
+        train_window.title("Training Settings")
+        train_window.geometry("400x375")
+        train_window.config(background = background_clr)
 
+        lb_lvl2 = tk.Label(
+            train_window,
+            text="Level 2:",
+            bg="black", fg=lvl_colors['2'],
+            width=100, height=1,
+            font=(subtext_font, subtext_size),
+            anchor="center"
+        )
+
+        et_lvl2 = tk.Entry(
+            train_window,
+            bg="black", fg="white",
+            width=entry_width,
+            font=(text_box_font, subtext_size),
+            justify='center'
+        )
+        et_lvl2.insert(0, "01:00:00:00")
+
+        lb_lvl3 = tk.Label(
+            train_window,
+            text="Level 3:",
+            bg="black", fg=lvl_colors['3'],
+            width=100, height=1,
+            font=(subtext_font, subtext_size),
+            anchor="center"
+        )
+
+        et_lvl3 = tk.Entry(
+            train_window,
+            bg="black", fg="white",
+            width=entry_width,
+            font=(text_box_font, subtext_size),
+            justify='center'
+        )
+        et_lvl3.insert(0, "07:00:00:00")
+
+        lb_lvl4 = tk.Label(
+            train_window,
+            text="Level 4:",
+            bg="black", fg=lvl_colors['4'],
+            width=100, height=1,
+            font=(subtext_font, subtext_size),
+            anchor="center"
+        )
+
+        et_lvl4 = tk.Entry(
+            train_window,
+            bg="black", fg="white",
+            width=entry_width,
+            font=(text_box_font, subtext_size),
+            justify='center'
+        )
+        et_lvl4.insert(0, "14:00:00:00")
+
+        lb_lvl5 = tk.Label(
+            train_window,
+            text="Level 5:",
+            bg="black", fg=lvl_colors['5'],
+            width=100, height=1,
+            font=(subtext_font, subtext_size),
+            anchor="center"
+        )
+
+        et_lvl5 = tk.Entry(
+            train_window,
+            bg="black", fg="white",
+            width=entry_width,
+            font=(text_box_font, subtext_size),
+            justify='center'
+        )
+        et_lvl5.insert(0, "21:00:00:00")
+
+        lb_result = tk.Label(
+            train_window,
+            bg="black",
+            fg="red",
+            width=100,
+            height=1,
+            font=(subtext_font, subtext_size),
+            anchor="center"
+        )
+
+        bt_save = tk.Button(
+            train_window,
+            text="Save",
+            width=10,
+            height=1,
+            bg="black",
+            font=(subtext_font, subtext_size),
+            fg="white",
+            anchor="center",
+            highlightthickness=0,
+            command=partial(self.read_settings, lb_result, et_lvl2, et_lvl3, et_lvl4, et_lvl5)
+        )
+
+        # vocab
+        lb_lvl2.pack(pady=(10,0))
+        et_lvl2.pack(pady=(5,0))
+        lb_lvl3.pack(pady=(10,0))
+        et_lvl3.pack(pady=(5,0))
+        lb_lvl4.pack(pady=(10,0))
+        et_lvl4.pack(pady=(5,0))
+        lb_lvl5.pack(pady=(10,0))
+        et_lvl5.pack(pady=(5,0))
+        bt_save.pack(pady=(20,0))
 
     # import json page
     def import_page(self):
@@ -622,6 +729,15 @@ class Window:
             et.config(state='disabled')
         else:
             et.config(state='normal')
+
+    def read_settings(self, label, lvl2, lvl3, lvl4, lvl5):
+        result = tk.StringVar()
+
+        strg = utils.save_settings(lvl2.get(), lvl3.get(), lvl4.get(), lvl5.get())
+        result.set(strg)
+
+        label.config(textvariable=result)
+        label.pack()
 
     def check_ans(self, word, lvl, label, *args):
         correct = False
