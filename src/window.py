@@ -24,7 +24,7 @@ lvl_colors = { '1': "#9bf598",
                '3': "#00e0d5",
                '4': "#798CFF",
                '5': "#c73cfa"  }
-refresh_rate = 60000
+refresh_rate = 10000
 
 
 class Window:
@@ -36,6 +36,7 @@ class Window:
         self.root.geometry("500x500")
         self.elements = []
         self.focus, self.sound = utils.get_pests()
+        self.active_word = False
         self.lb_title = tk.Label(
             text="Pestlexis",
             bg="black", fg="white",
@@ -46,7 +47,22 @@ class Window:
 
     # wait for events
     def start(self):
+        self.root.after(1000, self.grab_focus)
         self.root.mainloop()
+
+    def grab_focus(self):
+        try:
+            if not self.root.focus_displayof() and self.active_word and self.focus:
+                self.root.withdraw()
+                self.root.deiconify()
+                self.root.focus_force()
+                self.root.lift()
+                self.root.attributes('-topmost', True)
+                self.root.attributes('-topmost', False)
+        except KeyError:
+            pass
+        self.root.after(1000, self.grab_focus)
+
 
     # TODO: homepage
     # state True: train
@@ -86,6 +102,7 @@ class Window:
         self.root.config(menu=menubar)
 
         if not os.path.exists("../data/user/dict.json"):
+            self.active_word = False
             for element in self.elements:
                 element.destroy()
             self.elements = []
@@ -143,6 +160,7 @@ class Window:
 
             # no words to study right now
             if word is None:
+                self.active_word = False
                 lb_finished = tk.Label(
                     text="Check back later! \nNo words are ready to be trained.",
                     bg="black", fg="#798CFF",
@@ -156,6 +174,7 @@ class Window:
                 self.root.after(refresh_rate, self.homepage)
 
             elif roman is None:
+                self.active_word = True
                 lb_word = tk.Label(
                     text=word,
                     bg="black", fg=lvl_colors[lvl],
@@ -206,6 +225,7 @@ class Window:
                 self.elements.extend([lb_word, lb_def, tx_def, bt_check])
 
             else:
+                self.active_word = True
                 for element in self.elements:
                     element.destroy()
                 self.elements = []
@@ -848,6 +868,7 @@ class Window:
         result = tk.StringVar()
 
         strg = utils.save_pests(focus.get(), train.get())
+        self.focus, self.sound = utils.get_pests()
         result.set(strg)
 
         label.config(textvariable=result)
