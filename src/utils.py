@@ -18,6 +18,29 @@ def refresh():
     python = sys.executable
     os.execl(python, python, * sys.argv)
 
+def save_pests(focus, sound):
+    try:
+        with open("../data/user/settings.json", "r") as settings:
+            settings_dict = json.load(settings)
+    except FileNotFoundError:
+        return "Settings file missing"
+
+    settings_dict['focus'] = focus
+    settings_dict['sound'] = sound
+
+    with open("../data/user/settings.json", "w") as outfile:
+        json.dump(settings_dict, outfile, ensure_ascii = False)
+
+    return "Success"
+
+# to set class attribute on every open of Window
+def get_pests():
+    with open("../data/user/settings.json", "r") as settings:
+        settings_dict = json.load(settings)
+
+    return settings_dict['focus'], settings_dict['sound']
+
+
 def save_settings(lvl2, lvl3, lvl4, lvl5):
     # this function is very bad, but I don't feel like being smart about it yet
     seconds = [86400, 3600, 60]

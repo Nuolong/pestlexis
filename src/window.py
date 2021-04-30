@@ -8,6 +8,7 @@ from utils import debug
 from functools import partial
 import os
 import time
+import json
 
 # constants
 background_clr = "#000000"
@@ -34,6 +35,7 @@ class Window:
         self.root.config(background = background_clr)
         self.root.geometry("500x500")
         self.elements = []
+        self.focus, self.sound = utils.get_pests()
         self.lb_title = tk.Label(
             text="Pestlexis",
             bg="black", fg="white",
@@ -42,29 +44,9 @@ class Window:
             anchor="center"
         )
 
-        # to use in roman_sel()
-        self.et_roman = tk.Entry(
-            bg="black", fg="white",
-            width=entry_width,
-            font=(text_box_font, subtext_size),
-            justify='center',
-            disabledbackground="#636363"
-        )
-
-        # to use in get_vals()
-        self.lb_result = tk.Label(
-            bg="black",
-            fg="red",
-            width=100,
-            height=1,
-            font=(subtext_font, subtext_size),
-            anchor="center"
-        )
-
     # wait for events
     def start(self):
         self.root.mainloop()
-
 
     # TODO: homepage
     # state True: train
@@ -427,7 +409,125 @@ class Window:
 
     def pest_settings(self):
         debug("In pest_settings")
-        pass
+        pest_window = tk.Toplevel(self.root)
+        pest_window.title("Pest Settings")
+        pest_window.geometry("400x260")
+        pest_window.config(background = background_clr)
+
+        focus = tk.IntVar()
+        sound = tk.IntVar()
+
+        with open("../data/user/settings.json", "r") as settings:
+            settings_dict = json.load(settings)
+
+        # set current setting
+        focus.set(settings_dict['focus'])
+        sound.set(settings_dict['sound'])
+
+        lb_focus = tk.Label(
+            pest_window,
+            text="Force focus:",
+            bg="black",
+            fg="white",
+            width=100,
+            height=1,
+            font=(subtext_font, subtext_size),
+            anchor="center"
+        )
+
+        focus_off = tk.Radiobutton(
+            pest_window,
+            bg="black", fg="white",
+            selectcolor="black",
+            activebackground="black",
+            activeforeground="white",
+            font=(subtext_font, subtext_size - 5),
+            highlightthickness=0,
+            value=0,
+            text="Off",
+            variable=focus
+        )
+        focus_on = tk.Radiobutton(
+            pest_window,
+            bg="black", fg="white",
+            selectcolor="black",
+            activebackground="black",
+            activeforeground="white",
+            font=(subtext_font, subtext_size - 5),
+            highlightthickness=0,
+            value=1,
+            text="On",
+            variable=focus
+        )
+
+        lb_sound = tk.Label(
+            pest_window,
+            text="Play sound:",
+            bg="black",
+            fg="white",
+            width=100,
+            height=1,
+            font=(subtext_font, subtext_size),
+            anchor="center"
+        )
+
+        sound_off = tk.Radiobutton(
+            pest_window,
+            bg="black", fg="white",
+            selectcolor="black",
+            activebackground="black",
+            activeforeground="white",
+            font=(subtext_font, subtext_size - 5),
+            highlightthickness=0,
+            value=0,
+            text="Off",
+            variable=sound
+        )
+        sound_on = tk.Radiobutton(
+            pest_window,
+            bg="black", fg="white",
+            selectcolor="black",
+            activebackground="black",
+            activeforeground="white",
+            font=(subtext_font, subtext_size - 5),
+            highlightthickness=0,
+            value=1,
+            text="On",
+            variable=sound
+        )
+
+        lb_result = tk.Label(
+            pest_window,
+            bg="black",
+            fg="red",
+            width=100,
+            height=1,
+            font=(subtext_font, subtext_size),
+            anchor="center"
+        )
+
+        bt_save = tk.Button(
+            pest_window,
+            text="Save",
+            width=10,
+            height=1,
+            bg="black",
+            font=(subtext_font, subtext_size),
+            fg="white",
+            anchor="center",
+            highlightthickness=0,
+            command=partial(self.read_pests, lb_result, focus, sound)
+        )
+
+        lb_focus.pack(pady=(10,0))
+        focus_off.pack(pady=(5,0))
+        focus_on.pack()
+
+        lb_sound.pack(pady=(10,0))
+        sound_off.pack(pady=(5,0))
+        sound_on.pack()
+
+        bt_save.pack(pady=(20,0))
 
     def train_settings(self):
         debug("In train_settings")
@@ -743,6 +843,16 @@ class Window:
             et.config(state='disabled')
         else:
             et.config(state='normal')
+
+    def read_pests(self, label, focus, train):
+        result = tk.StringVar()
+
+        strg = utils.save_pests(focus.get(), train.get())
+        result.set(strg)
+
+        label.config(textvariable=result)
+        label.pack()
+
 
     def read_settings(self, label, lvl2, lvl3, lvl4, lvl5):
         result = tk.StringVar()
