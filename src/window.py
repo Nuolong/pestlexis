@@ -18,6 +18,12 @@ subtext_font = "Consolas"
 text_box_font = "Consolas"
 title_font = "Times New Roman"
 title_size = 45
+lvl_colors = { '1': "#9bf598",
+               '2': "#27c722",
+               '3': "#00e0d5",
+               '4': "#798CFF",
+               '5': "#c73cfa"  }
+refresh_rate = 60000
 
 
 class Window:
@@ -86,6 +92,12 @@ class Window:
             activeforeground="white",
             activebackground="black",
             command=self.pest_settings
+        )
+        filemenu.add_command(
+            label="Train Settings",
+            activeforeground="white",
+            activebackground="black",
+            command=self.train_settings
         )
 
         menubar.add_cascade(label="Menu", menu=filemenu)
@@ -159,10 +171,12 @@ class Window:
                 )
                 lb_finished.pack(pady=(50, subtext_size))
                 self.elements.append(lb_finished)
+                self.root.after(refresh_rate, self.homepage)
+
             elif roman is None:
                 lb_word = tk.Label(
                     text=word,
-                    bg="black", fg="#798CFF",
+                    bg="black", fg=lvl_colors[lvl],
                     width=100, height=1,
                     font=(subtext_font, title_size),
                     anchor="center",
@@ -216,7 +230,7 @@ class Window:
 
                 lb_word = tk.Label(
                     text=word,
-                    bg="black", fg="#798CFF",
+                    bg="black", fg=lvl_colors[lvl],
                     width=100, height=1,
                     font=(subtext_font, title_size),
                     anchor="center",
@@ -414,6 +428,10 @@ class Window:
 
     def pest_settings(self):
         debug("In pest_settings")
+        pass
+
+    def train_settings(self):
+        debug("In train_settings")
         pass
 
 
