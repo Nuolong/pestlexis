@@ -184,9 +184,8 @@ def import_dict(keys):
                 progress_json = json.load(progress)
 
                 for word in data_list:
-                    progress_json['1'].append((word[word_key], int(time.time())))
-
                     try:
+                        progress_json['1'].append((word[word_key], int(time.time())))
                         word_dict[word[word_key]] = {}
                     except KeyError:
                         debug("Vocab key nonexistent")
