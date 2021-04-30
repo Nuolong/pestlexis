@@ -14,6 +14,8 @@ FIVE = 1814400
 # settings in seconds
 def load_setting():
     debug("In load_setting")
+    global TWO, THREE, FOUR, FIVE
+
     with open("../data/user/settings.json", "r") as settings:
         settings_dict = json.load(settings)
 
@@ -21,7 +23,7 @@ def load_setting():
     THREE = settings_dict['3']
     FOUR = settings_dict['4']
     FIVE = settings_dict['5']
-    return "Saved"
+    return [TWO, THREE, FOUR, FIVE]
 
 # load settings on startup
 load_setting()
@@ -38,6 +40,8 @@ def choose_word():
     # yes, I could avoid code duplication here but that's a later-job
     if prog_json['2']:
         word, logged = prog_json['2'][0]
+        print(time.time() - logged)
+        print(TWO)
         if time.time() - logged >= TWO:
             return word, '2'
 

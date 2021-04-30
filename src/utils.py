@@ -78,13 +78,14 @@ def save_settings(lvl2, lvl3, lvl4, lvl5):
 
     settings_dict["2"] = lvl2_sec
     settings_dict["3"] = lvl3_sec
-    settings_dict["4"] = lvl3_sec
-    settings_dict["5"] = lvl3_sec
+    settings_dict["4"] = lvl4_sec
+    settings_dict["5"] = lvl5_sec
 
     with open("../data/user/settings.json", "w") as outfile:
         json.dump(settings_dict, outfile, ensure_ascii = False)
 
-    return train.load_setting()
+    train.load_setting()
+    return "Success"
 
 # add to dictionary
 # returns tuple:

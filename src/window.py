@@ -435,6 +435,20 @@ class Window:
         train_window.title("Training Settings")
         train_window.geometry("400x375")
         train_window.config(background = background_clr)
+        current = train.load_setting()
+        current_conv = []
+
+        # to display what the current settings are in entries
+        for time in current:
+            day = time // (24 * 3600)
+            time = time % (24 * 3600)
+            hour = time // 3600
+            time %= 3600
+            minutes = time // 60
+            time %= 60
+            seconds = time
+            current_conv.append("%d:%d:%d:%d" % (day, hour, minutes, seconds))
+
 
         lb_lvl2 = tk.Label(
             train_window,
@@ -452,7 +466,7 @@ class Window:
             font=(text_box_font, subtext_size),
             justify='center'
         )
-        et_lvl2.insert(0, "01:00:00:00")
+        et_lvl2.insert(0, current_conv[0])
 
         lb_lvl3 = tk.Label(
             train_window,
@@ -470,7 +484,7 @@ class Window:
             font=(text_box_font, subtext_size),
             justify='center'
         )
-        et_lvl3.insert(0, "07:00:00:00")
+        et_lvl3.insert(0, current_conv[1])
 
         lb_lvl4 = tk.Label(
             train_window,
@@ -488,7 +502,7 @@ class Window:
             font=(text_box_font, subtext_size),
             justify='center'
         )
-        et_lvl4.insert(0, "14:00:00:00")
+        et_lvl4.insert(0, current_conv[2])
 
         lb_lvl5 = tk.Label(
             train_window,
@@ -506,7 +520,7 @@ class Window:
             font=(text_box_font, subtext_size),
             justify='center'
         )
-        et_lvl5.insert(0, "21:00:00:00")
+        et_lvl5.insert(0, current_conv[3])
 
         lb_result = tk.Label(
             train_window,
