@@ -9,6 +9,8 @@ from functools import partial
 import os
 import time
 import json
+import pygame
+import random
 
 # constants
 background_clr = "#000000"
@@ -25,6 +27,7 @@ lvl_colors = { '1': "#9bf598",
                '4': "#798CFF",
                '5': "#c73cfa"  }
 refresh_rate = 10000
+sound_dir = "../data/sounds/"
 
 
 class Window:
@@ -44,11 +47,18 @@ class Window:
             font=(title_font, title_size),
             anchor="center"
         )
+        self.sounds = []
 
     # wait for events
     def start(self):
+        pygame.init()
+        for filename in os.listdir(sound_dir):
+            self.sounds.append(sound_dir + filename)
+
+        self.root.after(1000, self.play_sound)
         self.root.after(1000, self.grab_focus)
         self.root.mainloop()
+
 
     def grab_focus(self):
         try:
@@ -59,10 +69,19 @@ class Window:
                 self.root.lift()
                 self.root.attributes('-topmost', True)
                 self.root.attributes('-topmost', False)
+        # for being on the menu
         except KeyError:
             pass
         self.root.after(1000, self.grab_focus)
 
+    def play_sound(self):
+        try:
+            if not self.root.focus_displayof() and self.active_word and self.sound:
+                pygame.mixer.music.load(random.choice(self.sounds))
+                pygame.mixer.music.play()
+        except KeyError:
+            pass
+        self.root.after(1000, self.play_sound)
 
     # TODO: homepage
     # state True: train
